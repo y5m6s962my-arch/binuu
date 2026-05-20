@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #0b0f19;
+      color: #e6e6e6;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, #1b2550, #0b0f19);
+    }
+
+    header h1 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #9aa4b2;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: #121a2a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #1f2a44;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #2d3f66;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #ffffff;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #1f2a44;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-right: 6px;
+      margin-top: 6px;
+      color: #9fb3d1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    a {
+      color: #7aa2ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Montrumel</h1>
+    <p>Server Manager • Systems Administrator • Developer</p>
+    <p>Managing multiple servers with focus on stability, performance, and security.</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        I manage and maintain multiple online systems and servers, focusing on reliability, uptime, and performance optimisation.
+        I specialise in infrastructure control, automation, and system organisation.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Experience</h2>
+      <p>• Server Administration & Management</p>
+      <p>• Discord & Community Infrastructure</p>
+      <p>• Automation & Scripting Systems</p>
+      <p>• Performance Optimization</p>
+    </div>
+
+    <div class="card">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h2>Server Network</h2>
+          <p>Managed a multi-server ecosystem focused on uptime and scalability.</p>
+          <span class="tag">High Availability</span>
+          <span class="tag">Scaling</span>
+        </div>
+
+        <div class="card">
+          <h2>Automation System</h2>
+          <p>Built scripts to automate server moderation and system tasks.</p>
+          <span class="tag">Lua</span>
+          <span class="tag">Automation</span>
+        </div>
+
+        <div class="card">
+          <h2>Community Infrastructure</h2>
+          <p>Designed structured systems for large online communities.</p>
+          <span class="tag">Discord</span>
+          <span class="tag">Management</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: montrumel@binuu.dev</p>
+      <p>Website: <a href="#">https://binuu.dev</a></p>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Montrumel Systems. All rights reserved.
+  </footer>
+
+</body>
+</html>
