@@ -3,164 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Professional Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>montrumel</title>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
 
     body {
-      background: #0b0f19;
-      color: #e6e6e6;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
       line-height: 1.6;
-    }
-
-    header {
-      padding: 80px 20px;
-      text-align: center;
-      background: radial-gradient(circle at top, #1b2550, #0b0f19);
-    }
-
-    header h1 {
-      font-size: 42px;
-      font-weight: 700;
-    }
-
-    header p {
-      margin-top: 10px;
-      color: #9aa4b2;
-      font-size: 18px;
+      padding: 60px 20px;
     }
 
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
+    /* HERO */
+    .hero {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 54px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #6e6e73;
+      margin-top: 6px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #34c759;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34c759;
+      box-shadow: 0 0 10px #34c759;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* GLASS CARD */
     .card {
-      background: #121a2a;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #1f2a44;
-      transition: 0.3s;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 18px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all 0.6s ease;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #2d3f66;
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
-      margin-bottom: 15px;
-      font-size: 24px;
-      color: #ffffff;
+      font-size: 17px;
+      margin-bottom: 6px;
     }
 
-    .tag {
-      display: inline-block;
-      background: #1f2a44;
-      padding: 5px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      margin-right: 6px;
-      margin-top: 6px;
-      color: #9fb3d1;
+    p {
+      font-size: 15px;
+      color: #3a3a3c;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    /* BUTTONS LEFT */
+    .buttons {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-top: 18px;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #6b7280;
+    .btn {
+      padding: 10px 16px;
+      border-radius: 999px;
       font-size: 14px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .primary {
+      background: #0071e3;
+      color: white;
+    }
+
+    .primary:hover {
+      background: #005fc4;
+      transform: translateY(-1px);
+    }
+
+    .secondary {
+      background: #e5e5ea;
+      color: #1d1d1f;
+    }
+
+    .secondary:hover {
+      background: #d6d6db;
+      transform: translateY(-1px);
     }
 
     a {
-      color: #7aa2ff;
+      color: #0071e3;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    footer {
+      margin-top: 50px;
+      font-size: 12px;
+      color: #86868b;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Montrumel</h1>
-    <p>Server Manager • Systems Administrator • Developer</p>
-    <p>Managing multiple servers with focus on stability, performance, and security.</p>
-  </header>
+<div class="container">
 
-  <div class="container">
+  <div class="hero">
+    <h1>montrumel</h1>
+    <div class="subtitle">Server Administrator • Developer</div>
+
+    <div class="status">
+      <div class="dot"></div>
+      <span id="statusText">Active between 4pm-11pm </span>
+    </div>
+
+    <div class="buttons">
+      <a class="btn primary" href="https://discord.gg/altra" target="_blank">Join Discord</a>
+      <button class="btn secondary" onclick="window.close()">Exit</button>
+    </div>
+  </div>
+
+  <div class="grid">
 
     <div class="card">
-      <h2>About Me</h2>
-      <p>
-        I manage and maintain multiple online systems and servers, focusing on reliability, uptime, and performance optimisation.
-        I specialise in infrastructure control, automation, and system organisation.
-      </p>
+      <h2>About</h2>
+      <p>I manage and maintain multiple servers and online systems with a focus on stability, reliability, and performance.</p>
     </div>
 
     <div class="card">
       <h2>Experience</h2>
-      <p>• Server Administration & Management</p>
-      <p>• Discord & Community Infrastructure</p>
-      <p>• Automation & Scripting Systems</p>
-      <p>• Performance Optimization</p>
-    </div>
-
-    <div class="card">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h2>Server Network</h2>
-          <p>Managed a multi-server ecosystem focused on uptime and scalability.</p>
-          <span class="tag">High Availability</span>
-          <span class="tag">Scaling</span>
-        </div>
-
-        <div class="card">
-          <h2>Automation System</h2>
-          <p>Built scripts to automate server moderation and system tasks.</p>
-          <span class="tag">Lua</span>
-          <span class="tag">Automation</span>
-        </div>
-
-        <div class="card">
-          <h2>Community Infrastructure</h2>
-          <p>Designed structured systems for large online communities.</p>
-          <span class="tag">Discord</span>
-          <span class="tag">Management</span>
-        </div>
-      </div>
+      <p>
+        • Managing active server environments<br/>
+        • Monitoring uptime and troubleshooting<br/>
+        • Configuring services and permissions<br/>
+        • Supporting backend operations
+      </p>
     </div>
 
     <div class="card">
       <h2>Contact</h2>
       <p>Email: montrumel@binuu.dev</p>
-      <p>Website: <a href="#">https://binuu.dev</a></p>
+      <p>Website: <a href="https://binuu.dev">binuu.dev</a></p>
     </div>
 
   </div>
 
-  <footer>
-    © 2026 Montrumel Systems. All rights reserved.
-  </footer>
+  <footer>© 2026 montrumel. All rights reserved</footer>
+
+</div>
+
+<script>
+  // dynamic status (simple time-based)
+  function updateStatus() {
+    const hour = new Date().getHours();
+    const status = document.getElementById("statusText");
+
+    if (hour >= 0 && hour < 6) status.textContent = "Offline (Sleep)";
+    else if (hour >= 6 && hour < 12) status.textContent = "Online";
+    else if (hour >= 12 && hour < 18) status.textContent = "Active";
+    else status.textContent = "Online";
+  }
+
+  updateStatus();
+
+  // scroll animations
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
