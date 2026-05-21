@@ -42,6 +42,27 @@
       margin-bottom: 40px;
     }
 
+    #helloText {
+      position: relative;
+      overflow: hidden;
+      height: 72px;
+    }
+
+    .hello-animate {
+      animation: helloSlide 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes helloSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h1 {
       font-size: 64px;
       font-weight: 700;
@@ -202,8 +223,8 @@
 <div class="container">
 
   <div class="hero">
-    <h1>montrumel</h1>
-    <div class="subtitle">Founder of Altra (4K+) • Co-Owner of PDWD (445K+)</div>
+    <h1 id="helloText">Hello</h1>
+    <div class="subtitle">montrumel • Founder of Altra (4K+) • Co-Owner of PDWD (445K+)</div>
 
     <div class="status">
       <div class="dot"></div>
@@ -254,7 +275,13 @@
 
     <div class="project">
       <p><strong>PDWD</strong><br/>
-      Co-owner support and backend operations for a large community game with 445K+ visits.</p>
+      Co-owner support and backend operations for a large-scale community environment with 445K+ reach.</p>
+    </div>
+  </div>
+  
+ <div class="project">
+      <p><strong>CEVA</strong><br/>
+      Founder of a network called CEVA making coding projects.</p>
     </div>
   </div>
 
@@ -263,6 +290,12 @@
     <p>
       Working on moderation systems, backend improvements, automation tools, and scalable community infrastructure.
     </p>
+  </div>
+
+  <div class="section reveal">
+    <h2>Discord</h2>
+    <p>Discord Profile Integration Ready</p>
+    <p style="margin-top:8px;color:#6e6e73;">User ID: 393436068998938645</p>
   </div>
 
   <div class="section reveal">
@@ -302,6 +335,32 @@
   }
 
   updateStatus();
+
+  const hellos = [
+    'Hello',
+    'Hallo',
+    'Hej',
+    'مرحبا',
+    'Bonjour',
+    'Ciao',
+    'こんにちは',
+    '안녕하세요',
+    'Olá',
+    'Привет'
+  ];
+
+  let helloIndex = 0;
+  const helloText = document.getElementById('helloText');
+
+  setInterval(() => {
+    helloIndex = (helloIndex + 1) % hellos.length;
+
+    helloText.classList.remove('hello-animate');
+    void helloText.offsetWidth;
+
+    helloText.textContent = hellos[helloIndex];
+    helloText.classList.add('hello-animate');
+  }, 2200);
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
