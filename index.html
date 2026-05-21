@@ -18,6 +18,16 @@
       color: #1d1d1f;
       line-height: 1.6;
       padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: enterPage 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes enterPage {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .container {
@@ -152,16 +162,16 @@
 
   <div class="hero">
     <h1>montrumel</h1>
-    <div class="subtitle">Server Administrator • Developer</div>
+    <div class="subtitle">Founder of Altra (4K+) • Co-Owner of PDWD (445K+)</div>
 
     <div class="status">
       <div class="dot"></div>
-      <span id="statusText">Active between 4pm-11pm </span>
+      <span id="statusText">Online</span>
     </div>
 
     <div class="buttons">
       <a class="btn primary" href="https://discord.gg/altra" target="_blank">Join Discord</a>
-      <button class="btn secondary" onclick="window.close()">Exit</button>
+      <button class="btn secondary" onclick="exitSite()">Exit</button>
     </div>
   </div>
 
@@ -175,10 +185,10 @@
     <div class="card">
       <h2>Experience</h2>
       <p>
-        • Managing active server environments<br/>
-        • Monitoring uptime and troubleshooting<br/>
-        • Configuring services and permissions<br/>
-        • Supporting backend operations
+        • Founder and manager of the Altra community network (4K+ members)<br/>
+        • Co-owner and support operations for PDWD (445K+ members)<br/>
+        • Managing active server environments and moderation systems<br/>
+        • Monitoring uptime, permissions, backend systems, and community operations
       </p>
     </div>
 
@@ -190,11 +200,31 @@
 
   </div>
 
-  <footer>© 2026 montrumel. All rights reserved</footer>
+  <footer>© 2026 montrumel</footer>
 
 </div>
 
 <script>
+  function exitSite() {
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(10px)';
+    document.body.style.transition = 'all 0.35s ease';
+
+    setTimeout(() => {
+      window.location.href = 'https://google.com';
+    }, 300);
+  }
+
+  function exitSite() {
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(10px)';
+    document.body.style.transition = 'all 0.35s ease';
+
+    setTimeout(() => {
+      window.location.href = 'https://google.com';
+    }, 300);
+  }
+
   // dynamic status (simple time-based)
   function updateStatus() {
     const hour = new Date().getHours();
