@@ -12,15 +12,18 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
       background: #f5f5f7;
       color: #1d1d1f;
-      line-height: 1.6;
-      padding: 60px 20px;
+      padding: 60px 22px;
       opacity: 0;
-      transform: translateY(8px);
-      animation: enterPage 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      transform: translateY(10px);
+      animation: enterPage 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     @keyframes enterPage {
@@ -31,96 +34,62 @@
     }
 
     .container {
-      max-width: 760px;
+      max-width: 820px;
       margin: 0 auto;
     }
 
-    /* HERO */
     .hero {
-      text-align: left;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     h1 {
-      font-size: 54px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1;
     }
 
     .subtitle {
-      font-size: 16px;
+      margin-top: 10px;
+      font-size: 18px;
       color: #6e6e73;
-      margin-top: 6px;
+      letter-spacing: -0.01em;
     }
 
     .status {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 12px;
-      font-size: 13px;
+      margin-top: 16px;
+      font-size: 14px;
       color: #34c759;
+      font-weight: 500;
     }
 
     .dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: #34c759;
-      box-shadow: 0 0 10px #34c759;
+      box-shadow: 0 0 12px #34c759;
     }
 
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    /* GLASS CARD */
-    .card {
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(0,0,0,0.06);
-      border-radius: 16px;
-      padding: 18px;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: all 0.6s ease;
-    }
-
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h2 {
-      font-size: 17px;
-      margin-bottom: 6px;
-    }
-
-    p {
-      font-size: 15px;
-      color: #3a3a3c;
-    }
-
-    /* BUTTONS LEFT */
     .buttons {
       display: flex;
-      justify-content: flex-start;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      cursor: pointer;
       border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
       text-decoration: none;
-      transition: 0.2s ease;
     }
 
     .primary {
@@ -130,17 +99,79 @@
 
     .primary:hover {
       background: #005fc4;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .secondary {
-      background: #e5e5ea;
+      background: #e8e8ed;
       color: #1d1d1f;
     }
 
     .secondary:hover {
-      background: #d6d6db;
-      transform: translateY(-1px);
+      background: #dcdce1;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      margin-top: 22px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(0,0,0,0.05);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 22px;
+      padding: 22px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      font-size: 15px;
+      color: #3a3a3c;
+      line-height: 1.7;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.55);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-label {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #6e6e73;
+    }
+
+    .project {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,0.06);
     }
 
     a {
@@ -149,10 +180,20 @@
     }
 
     footer {
-      margin-top: 50px;
+      margin-top: 55px;
+      text-align: center;
       font-size: 12px;
       color: #86868b;
-      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 46px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -175,39 +216,71 @@
     </div>
   </div>
 
-  <div class="grid">
-
-    <div class="card">
-      <h2>About</h2>
-      <p>I manage and maintain multiple servers and online systems with a focus on stability, reliability, and performance.</p>
-    </div>
-
-    <div class="card">
-      <h2>Experience</h2>
-      <p>
-        • Founder and manager of the Altra community network (4K+ members)<br/>
-        • Co-owner and support operations for PDWD (445K+ members)<br/>
-        • Managing active server environments and moderation systems<br/>
-        • Monitoring uptime, permissions, backend systems, and community operations
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Contact</h2>
-      <p>Email: montrumel@binuu.dev</p>
-      <p>Website: <a href="https://binuu.dev">binuu.dev</a></p>
-    </div>
-
+  <div class="section reveal">
+    <h2>About</h2>
+    <p>
+      I manage large-scale online communities and server environments with a focus on stability, moderation systems, organization, and backend operations.
+    </p>
   </div>
 
-  <footer>© 2026 montrumel</footer>
+  <div class="section reveal">
+    <h2>Live Metrics</h2>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">445K+</div>
+        <div class="stat-label">Community Reach</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">4K+</div>
+        <div class="stat-label">Altra Network</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Operations Monitoring</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <p><strong>Altra</strong><br/>
+      Founder and management of a growing online community network focused on moderation, structure, and development.</p>
+    </div>
+
+    <div class="project">
+      <p><strong>PDWD</strong><br/>
+      Co-owner support and backend operations for a large-scale community environment with 445K+ reach.</p>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <h2>Currently</h2>
+    <p>
+      Working on moderation systems, backend improvements, automation tools, and scalable community infrastructure.
+    </p>
+  </div>
+
+  <div class="section reveal">
+    <h2>Contact</h2>
+    <p>Email: montrumel@binuu.dev</p>
+    <p>Website: <a href="https://binuu.dev">binuu.dev</a></p>
+  </div>
+
+  <footer>
+    © 2026 montrumel
+  </footer>
 
 </div>
 
 <script>
   function exitSite() {
     document.body.style.opacity = '0';
-    document.body.style.transform = 'translateY(10px)';
+    document.body.style.transform = 'translateY(12px)';
     document.body.style.transition = 'all 0.35s ease';
 
     setTimeout(() => {
@@ -215,40 +288,32 @@
     }, 300);
   }
 
-  function exitSite() {
-    document.body.style.opacity = '0';
-    document.body.style.transform = 'translateY(10px)';
-    document.body.style.transition = 'all 0.35s ease';
-
-    setTimeout(() => {
-      window.location.href = 'https://google.com';
-    }, 300);
-  }
-
-  // dynamic status (simple time-based)
   function updateStatus() {
     const hour = new Date().getHours();
-    const status = document.getElementById("statusText");
+    const status = document.getElementById('statusText');
 
-    if (hour >= 0 && hour < 6) status.textContent = "Offline (Sleep)";
-    else if (hour >= 6 && hour < 12) status.textContent = "Online";
-    else if (hour >= 12 && hour < 18) status.textContent = "Active";
-    else status.textContent = "Online";
+    if (hour >= 0 && hour < 6) {
+      status.textContent = 'Away';
+    } else if (hour >= 6 && hour < 18) {
+      status.textContent = 'Active';
+    } else {
+      status.textContent = 'Online';
+    }
   }
 
   updateStatus();
 
-  // scroll animations
-  const cards = document.querySelectorAll('.card');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.12 });
 
-  cards.forEach(card => observer.observe(card));
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
 </script>
 
 </body>
