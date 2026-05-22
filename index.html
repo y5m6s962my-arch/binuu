@@ -1,237 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>montrumel</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>montrumel</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
-      padding: 60px 22px;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: enterPage 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Arial, sans-serif;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  padding: 60px 22px;
+}
 
-    @keyframes enterPage {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.container {
+  max-width: 820px;
+  margin: auto;
+}
 
-    .container {
-      max-width: 820px;
-      margin: 0 auto;
-    }
+/* HERO */
+.hero {
+  margin-bottom: 40px;
+}
 
-    .hero {
-      margin-bottom: 44px;
-    }
+#hello {
+  height: 72px;
+  overflow: hidden;
+  position: relative;
+}
 
-    #helloText {
-      position: relative;
-      height: 72px;
-      overflow: hidden;
-    }
+.word {
+  position: absolute;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
 
-    .hello-word {
-      position: absolute;
-      width: 100%;
-      font-size: 64px;
-      font-weight: 700;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      color: #1d1d1f;
-    }
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .enter {
-      animation: in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
+.hide {
+  opacity: 0;
+  transform: translateY(30px);
+}
 
-    .exit {
-      animation: out 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
+.subtitle {
+  margin-top: 10px;
+  color: #6e6e73;
+  font-size: 18px;
+}
 
-    @keyframes in {
-      0% {
-        opacity: 0;
-        transform: translateY(-60px);
-        filter: blur(12px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
 
-    @keyframes out {
-      0% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(60px);
-        filter: blur(12px);
-      }
-    }
+.btn {
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
 
-    .subtitle {
-      margin-top: 10px;
-      font-size: 18px;
-      color: #6e6e73;
-    }
+.primary {
+  background: #0071e3;
+  color: white;
+}
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      font-size: 14px;
-      color: #34c759;
-      font-weight: 500;
-    }
+.secondary {
+  background: #e5e5ea;
+  color: #1d1d1f;
+}
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #34c759;
-      box-shadow: 0 0 10px #34c759;
-    }
+/* SECTIONS */
+.section {
+  margin-top: 20px;
+  background: rgba(255,255,255,0.75);
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-      flex-wrap: wrap;
-    }
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 
-    .btn {
-      border: none;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.25s ease;
-      text-decoration: none;
-    }
+p {
+  font-size: 15px;
+  color: #3a3a3c;
+  line-height: 1.6;
+}
 
-    .primary {
-      background: #0071e3;
-      color: white;
-    }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
 
-    .primary:hover {
-      background: #005fc4;
-      transform: translateY(-2px);
-    }
+.stat {
+  background: rgba(255,255,255,0.6);
+  padding: 16px;
+  border-radius: 14px;
+}
 
-    .secondary {
-      background: #e5e5ea;
-      color: #1d1d1f;
-    }
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
+}
 
-    .secondary:hover {
-      transform: translateY(-2px);
-    }
+.stat-label {
+  font-size: 13px;
+  color: #6e6e73;
+}
 
-    .section {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(0,0,0,0.05);
-      backdrop-filter: blur(18px);
-      border-radius: 20px;
-      padding: 22px;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 15px;
-      color: #3a3a3c;
-      line-height: 1.7;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .stat {
-      background: rgba(255,255,255,0.55);
-      border-radius: 16px;
-      padding: 16px;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .stat-number {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: #6e6e73;
-      margin-top: 4px;
-    }
-
-    .project {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
-
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 12px;
-      color: #86868b;
-    }
-  </style>
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: #86868b;
+}
+</style>
 </head>
 
 <body>
+
 <div class="container">
 
   <div class="hero">
-    <div id="helloText">
-      <div class="hello-word enter">Hello</div>
+    <div id="hello">
+      <div class="word show" id="text">Hello</div>
     </div>
 
     <div class="subtitle">
       montrumel • Founder of Altra (4K+) • Co-Owner of PDWD (445K+)
-    </div>
-
-    <div class="status">
-      <div class="dot"></div>
-      <span id="statusText">Active</span>
     </div>
 
     <div class="buttons">
@@ -240,24 +156,27 @@
     </div>
   </div>
 
-  <div class="section reveal">
+  <div class="section">
     <h2>About</h2>
     <p>
-      I manage large-scale online communities and server environments with a focus on moderation, stability, and backend systems.
+      I manage large-scale online communities and server systems with a focus on moderation, automation, and stability.
     </p>
   </div>
 
-  <div class="section reveal">
+  <div class="section">
     <h2>Live Metrics</h2>
+
     <div class="stats">
       <div class="stat">
         <div class="stat-number">445K+</div>
         <div class="stat-label">PDWD Visits</div>
       </div>
+
       <div class="stat">
         <div class="stat-number">4K+</div>
-        <div class="stat-label">Altra Experience</div>
+        <div class="stat-label">Altra Community</div>
       </div>
+
       <div class="stat">
         <div class="stat-number">4pm-11pm</div>
         <div class="stat-label">Monitoring</div>
@@ -265,30 +184,29 @@
     </div>
   </div>
 
-  <div class="section reveal">
+  <div class="section">
     <h2>Projects</h2>
 
-    <div class="project">
-      <p><strong>Altra</strong><br/>Community systems and moderation network.</p>
-    </div>
+    <p><b>Altra</b><br/>Community systems and moderation infrastructure.</p>
+    <br/>
+    <p><b>PDWD</b><br/>Large-scale backend and community operations.</p>
+    <br/>
+    <p><b>CEVA</b><br/>Development network focused on coding systems and tools.</p>
+  </div>
 
-    <div class="project">
-      <p><strong>PDWD</strong><br/>Large-scale backend and support operations.</p>
-    </div>
+  <div class="section">
+    <h2>Bug Report</h2>
+    <p>Found an issue? Send a direct report.</p>
 
-    <div class="project">
-      <p><strong>CEVA</strong><br/>Development network focused on coding systems and tools.</p>
+    <div class="buttons" style="margin-top:14px;">
+      <a class="btn primary"
+         href="mailto:montrumel@binuu.dev?subject=Bug%20Report">
+        Submit Report
+      </a>
     </div>
   </div>
 
-  <div class="section reveal">
-    <h2>Currently</h2>
-    <p>
-      Building automation tools, moderation systems, and scalable infrastructure.
-    </p>
-  </div>
-
-  <div class="section reveal">
+  <div class="section">
     <h2>Contact</h2>
     <p>Email: montrumel@binuu.dev</p>
     <p>Website: <a href="https://binuu.dev">binuu.dev</a></p>
@@ -299,65 +217,35 @@
 </div>
 
 <script>
-  function exitSite() {
-    document.body.style.opacity = "0";
-    document.body.style.transform = "translateY(10px)";
-    setTimeout(() => {
-      window.location.href = "https://google.com";
-    }, 300);
-  }
+const words = [
+  "Hello","Hallo","Hej","مرحبا","Bonjour",
+  "Ciao","こんにちは","안녕하세요","Olá","Привет"
+];
 
-  const hellos = [
-    "Hello","Hallo","Hej","مرحبا","Bonjour",
-    "Ciao","こんにちは","안녕하세요","Olá","Привет"
-  ];
+let i = 0;
+const text = document.getElementById("text");
 
-  let i = 0;
-  let busy = false;
+function swap() {
+  text.classList.remove("show");
+  text.classList.add("hide");
 
-  const box = document.getElementById("helloText");
+  setTimeout(() => {
+    i = (i + 1) % words.length;
+    text.textContent = words[i];
 
-  function rotate() {
-    if (busy) return;
+    text.classList.remove("hide");
+    text.classList.add("show");
+  }, 500);
+}
 
-    busy = true;
+setInterval(swap, 2500);
 
-    const current = document.querySelector(".hello-word");
-
-    current.classList.remove("enter");
-    current.classList.add("exit");
-
-    i = (i + 1) % hellos.length;
-
-    const next = document.createElement("div");
-    next.className = "hello-word enter";
-    next.textContent = hellos[i];
-
-    box.appendChild(next);
-
-    setTimeout(() => {
-      current.remove();
-      busy = false;
-    }, 1000);
-  }
-
-  setInterval(rotate, 2400);
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add("show");
-    });
-  });
-
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-  function updateStatus() {
-    const h = new Date().getHours();
-    document.getElementById("statusText").textContent =
-      (h < 6) ? "Away" : (h < 18) ? "Active" : "Online";
-  }
-
-  updateStatus();
+function exitSite() {
+  document.body.style.opacity = "0";
+  setTimeout(() => {
+    window.location.href = "https://google.com";
+  }, 300);
+}
 </script>
 
 </body>
