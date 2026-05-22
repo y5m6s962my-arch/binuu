@@ -46,46 +46,45 @@
 
     .hello-word {
       position: absolute;
-      left: 0;
-      top: 0;
       width: 100%;
       font-size: 64px;
       font-weight: 700;
       letter-spacing: -0.05em;
       line-height: 1;
+      color: #1d1d1f;
     }
 
     .enter {
-      animation: helloEnter 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     .exit {
-      animation: helloExit 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: out 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
-    @keyframes helloEnter {
-      from {
+    @keyframes in {
+      0% {
         opacity: 0;
-        transform: translateY(-40px);
-        filter: blur(10px);
+        transform: translateY(-60px);
+        filter: blur(12px);
       }
-      to {
+      100% {
         opacity: 1;
         transform: translateY(0);
         filter: blur(0);
       }
     }
 
-    @keyframes helloExit {
-      from {
+    @keyframes out {
+      0% {
         opacity: 1;
         transform: translateY(0);
         filter: blur(0);
       }
-      to {
+      100% {
         opacity: 0;
-        transform: translateY(40px);
-        filter: blur(10px);
+        transform: translateY(60px);
+        filter: blur(12px);
       }
     }
 
@@ -117,6 +116,7 @@
       display: flex;
       gap: 12px;
       margin-top: 24px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -146,19 +146,18 @@
     }
 
     .secondary:hover {
-      background: #d6d6db;
       transform: translateY(-2px);
     }
 
     .section {
       margin-top: 20px;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.72);
       border: 1px solid rgba(0,0,0,0.05);
       backdrop-filter: blur(18px);
       border-radius: 20px;
       padding: 22px;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(18px);
       transition: 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -209,11 +208,6 @@
       border-top: 1px solid rgba(0,0,0,0.06);
     }
 
-    a {
-      color: #0071e3;
-      text-decoration: none;
-    }
-
     footer {
       margin-top: 50px;
       text-align: center;
@@ -249,7 +243,7 @@
   <div class="section reveal">
     <h2>About</h2>
     <p>
-      I manage large-scale online communities and server environments with a focus on stability, moderation systems, and backend operations.
+      I manage large-scale online communities and server environments with a focus on moderation, stability, and backend systems.
     </p>
   </div>
 
@@ -258,7 +252,7 @@
     <div class="stats">
       <div class="stat">
         <div class="stat-number">445K+</div>
-        <div class="stat-label">Community Visits</div>
+        <div class="stat-label">PDWD Visits</div>
       </div>
       <div class="stat">
         <div class="stat-number">4K+</div>
@@ -275,22 +269,22 @@
     <h2>Projects</h2>
 
     <div class="project">
-      <p><strong>Altra</strong><br/>Founder and system manager of a growing community network.</p>
+      <p><strong>Altra</strong><br/>Community systems and moderation network.</p>
     </div>
 
     <div class="project">
-      <p><strong>PDWD</strong><br/>Co-owner operations and backend management for a large community.</p>
+      <p><strong>PDWD</strong><br/>Large-scale backend and support operations.</p>
     </div>
 
     <div class="project">
-      <p><strong>CEVA</strong><br/>Founder of CEVA, a development-focused network creating coding projects and systems.</p>
+      <p><strong>CEVA</strong><br/>Development network focused on coding systems and tools.</p>
     </div>
   </div>
 
   <div class="section reveal">
     <h2>Currently</h2>
     <p>
-      Working on moderation systems, backend improvements, automation systems, and scalable infrastructure tools.
+      Building automation tools, moderation systems, and scalable infrastructure.
     </p>
   </div>
 
@@ -319,13 +313,19 @@
   ];
 
   let i = 0;
-  const helloBox = document.querySelector("#helloText");
+  let busy = false;
 
-  setInterval(() => {
-    const old = document.querySelector(".hello-word");
+  const box = document.getElementById("helloText");
 
-    old.classList.remove("enter");
-    old.classList.add("exit");
+  function rotate() {
+    if (busy) return;
+
+    busy = true;
+
+    const current = document.querySelector(".hello-word");
+
+    current.classList.remove("enter");
+    current.classList.add("exit");
 
     i = (i + 1) % hellos.length;
 
@@ -333,16 +333,21 @@
     next.className = "hello-word enter";
     next.textContent = hellos[i];
 
-    helloBox.appendChild(next);
+    box.appendChild(next);
 
-    setTimeout(() => old.remove(), 800);
-  }, 2400);
+    setTimeout(() => {
+      current.remove();
+      busy = false;
+    }, 1000);
+  }
+
+  setInterval(rotate, 2400);
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add("show");
     });
-  }, { threshold: 0.12 });
+  });
 
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
